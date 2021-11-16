@@ -1,3 +1,5 @@
+DZIALA TYLKO NA LINUXIE!
+
 odpalaj na 2 konsole
 w 1 docker-compose up
 i potem w drugiej python3 manage.py runserver
