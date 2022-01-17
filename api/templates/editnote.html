@@ -1,0 +1,82 @@
+{%extends "bazowa.html"%}
+{% block content%}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="flashes">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<form method="post" action='/editnotefinish'>
+    <input class="non" type="text" name="idnotatkii" value="{{grupa[0]}}">
+    <input type="text" name="nazwanotatkii" value="{{grupa[1]}}">
+    <input type="textarea" name="trescnotatkii" value="{{grupa[2]}}">
+    
+      <select name="nazwagrupyy">
+{% for record in grupa[3]%}
+        <option value="{{record.nazwaGrupy}}">{{record.nazwaGrupy}}</option>
+{%endfor%}
+      </select>
+    <input type="submit" class="submit" value="zmien">
+</form>
+<a href="/logged"><h2>&#8678;</h2></a>
+
+<style>
+    .non
+    {
+        display: none;
+    }
+    h2
+    {
+        display: inline-block;
+        color: white;
+        font-size: 100px;
+        cursor: pointer;
+    }
+    ul 
+    {
+        list-style-type: none;
+    }
+    li
+    {
+        font-size: 25px;
+        font-weight: bold;
+        font-family:monospace;
+    }
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+    }
+    option
+    {
+        background-color:darkviolet;
+    }
+    input,select
+    {
+        height: 7%;
+        width: 90%;
+        margin: 2% 0;
+        border: 5px solid white;
+        border-radius: 10px;
+        font-size: 30px;
+        font-family: 'Pacifico', cursive;
+        color: white;
+        background: linear-gradient(45deg, rgba(255,0,255,1) 0%, rgba(159,39,252,1) 100%);
+    }
+    
+    .submit
+    {
+        width: 20%;
+        margin-left: 35%;
+        cursor: pointer;
+        transition: all 1s ease;
+    }
+    .submit:hover
+    {
+        border: 5px solid black;
+        color: black;
+    }
+</style>
+{%endblock%}

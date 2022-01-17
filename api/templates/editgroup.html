@@ -1,0 +1,70 @@
+{%extends "bazowa.html"%}
+{% block content%}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="flashes">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<form method="post" action='/editGr'>
+<input type="text" placeholder="nazwa grupy" name="nazwagruppy" value="{{grupa[0]}}">
+<input class="non" type="text" name="idgruppy" value="{{grupa[1]}}">
+<input type="submit" class="submit" value="zmien">
+</form>
+<a href="/logged"><h2>&#8678;</h2></a>
+
+<style>
+    .non
+    {
+        display: none;
+    }
+    h2
+    {
+        display: inline-block;
+        color: white;
+        font-size: 100px;
+        cursor: pointer;
+    }
+    ul 
+    {
+        list-style-type: none;
+    }
+    li
+    {
+        font-size: 25px;
+        font-weight: bold;
+        font-family:monospace;
+    }
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+    }
+    input
+    {
+        height: 7%;
+        width: 90%;
+        margin: 2% 0;
+        border: 5px solid white;
+        border-radius: 10px;
+        font-size: 30px;
+        font-family: 'Pacifico', cursive;
+        color: white;
+        background: linear-gradient(45deg, rgba(255,0,255,1) 0%, rgba(159,39,252,1) 100%);
+    }
+    .submit
+    {
+        width: 20%;
+        margin-left: 35%;
+        cursor: pointer;
+        transition: all 1s ease;
+    }
+    .submit:hover
+    {
+        border: 5px solid black;
+        color: black;
+    }
+</style>
+{%endblock%}

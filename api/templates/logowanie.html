@@ -1,0 +1,65 @@
+{%extends "bazowa.html"%}
+{% block content%}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="flashes">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<form method="post" action='/logging'>
+<input type="text" placeholder="podaj login" name="login">
+<input type="password" placeholder="podaj haslo" name="haslo">
+<input class="submit" type="submit" value="zaloguj">
+</form>
+<a href="/"><h2>&#8678;</h2></a>
+<style>
+    h2
+    {
+        display: inline-block;
+        color: white;
+        font-size: 100px;
+        cursor: pointer;
+    }
+    ul 
+    {
+        list-style-type: none;
+    }
+    li
+    {
+        font-size: 25px;
+        font-weight: bold;
+        font-family:monospace;
+    }
+    input
+    {
+        height: 7%;
+        width: 90%;
+        margin: 2% 0;
+        font-size: 30px;
+        font-family: 'Pacifico', cursive;
+        background: linear-gradient(45deg, rgba(255,0,255,1) 0%, rgba(159,39,252,1) 100%);
+        border: 5px solid white;
+        color: white;
+        border-radius: 10px;
+    }
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+    }
+    .submit
+    {
+        width: 20%;
+        margin-left: 35%;
+        cursor: pointer;
+        transition: all 1s ease;
+    }
+    .submit:hover
+    {
+        border: 5px solid black;
+        color: black;
+    }
+</style>
+{%endblock%}

@@ -1,0 +1,112 @@
+{%extends "bazowa.html"%}
+{% block content%}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="flashes">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<div class="lewa">
+<form method="post" action='/addgroup'>
+    <input type="text" name="nazwa" placeholder="podaj nazwe grupy" value="">
+    <input type="submit" class="submit" value="dodaj grupe">
+</form>
+</div>
+
+
+<div class="prawa">
+<form method="post" action='/addnot'>
+    <input type="text" name="nazwa" placeholder="podaj nazwe notatki" value="">
+    <input type="text" name="tresc" placeholder="podaj tresc notatki" value="">
+    <select name="nazwagrupyy">
+{% for record in x%}
+        <option value="{{record.nazwaGrupy}}">{{record.nazwaGrupy}}</option>
+{%endfor%}
+      </select>
+    <input type="submit" class="submit" value="dodaj notatke">
+</form>
+
+</div>
+
+
+
+
+<a href="/logged"><h2>&#8678;</h2></a>
+
+<style>
+    .lewa
+    {
+        float: left;
+        height: 100vh;
+        width: 50%;
+/*        background-color: red;*/
+    }
+    .prawa
+    {
+        float: right;
+        height: 100vh;
+        width: 50%;
+/*        background-color: blue;*/
+    }
+    .non
+    {
+        display: none;
+    }
+    h2
+    {
+        position: absolute;
+        bottom: 5%;
+        left: 2%;
+        display: inline-block;
+        color: white;
+        font-size: 100px;
+        cursor: pointer;
+    }
+    ul 
+    {
+        list-style-type: none;
+    }
+    li
+    {
+        font-size: 25px;
+        font-weight: bold;
+        font-family:monospace;
+    }
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+    }
+    option
+    {
+        background-color:darkviolet;
+    }
+    input,select
+    {
+        height: 7%;
+        width: 90%;
+        margin: 2% 0;
+        border: 5px solid white;
+        border-radius: 10px;
+        font-size: 30px;
+        font-family: 'Pacifico', cursive;
+        color: white;
+        background: linear-gradient(45deg, rgba(255,0,255,1) 0%, rgba(159,39,252,1) 100%);
+    }
+    
+    .submit
+    {
+        width: 30%;
+        margin-left: 35%;
+        cursor: pointer;
+        transition: all 1s ease;
+    }
+    .submit:hover
+    {
+        border: 5px solid black;
+        color: black;
+    }
+</style>
+{%endblock%}
