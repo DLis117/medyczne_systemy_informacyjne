@@ -1,1 +1,0 @@
-medyczne systemy informacyjne

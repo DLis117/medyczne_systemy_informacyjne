@@ -1,1 +1,0 @@
-# medyczne_systemy_informacyjne
